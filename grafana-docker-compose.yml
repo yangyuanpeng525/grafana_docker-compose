@@ -1,0 +1,15 @@
+version : '3.7'
+services:
+  grafana:
+        container_name : grafana
+        image: registry.cn-hangzhou.aliyuncs.com/yangyuanpeng/grafana:5.4.2
+        volumes:
+           - /TRS/APP/grafana/data:/var/lib/grafana
+           - /TRS/APP/grafana/conf:/etc/grafana
+           - /TRS/APP/grafana/log:/var/log/grafana
+        restart: always
+        environment:
+          TZ: Asia/Shanghai
+        ports :
+          - 3000:3000
+        user: "0"
